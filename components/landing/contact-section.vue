@@ -5,14 +5,41 @@ import { toast } from 'vue-sonner'
 
 const { t } = useI18n()
 const { fieldValidator } = useZodForm()
+const {
+  public: { web3formsKey },
+} = useRuntimeConfig()
+
+const isLoading = ref(false)
 
 const form = useForm({
   defaultValues: { name: '', email: '', message: '' },
-  onSubmit: ({ value }) => {
-    // Replace with a real submit — an API route, a form service, etc.
-    console.log('Contact form submitted:', value)
-    toast.success(t('contact.success'))
-    form.reset()
+  onSubmit: async ({ value }) => {
+    isLoading.value = true
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: web3formsKey,
+          subject: `ERPG contact form — ${value.name}`,
+          name: value.name,
+          email: value.email,
+          message: value.message,
+        }),
+      })
+
+      if (!response.ok) {
+        toast.error(t('contact.error'))
+        return
+      }
+
+      toast.success(t('contact.success'))
+      form.reset()
+    } catch {
+      toast.error(t('contact.error'))
+    } finally {
+      isLoading.value = false
+    }
   },
 })
 </script>
@@ -20,13 +47,13 @@ const form = useForm({
 <template>
   <section id="contact" v-motion-slide-visible-bottom class="mx-auto max-w-xl px-6 py-24">
     <div class="text-center">
-      <p class="text-primary text-sm font-semibold">
+      <p class="text-primary text-sm font-semibold lg:text-base">
         {{ t('contact.eyebrow') }}
       </p>
-      <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+      <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
         {{ t('contact.title') }}
       </h2>
-      <p class="text-base-content/70 mt-4">
+      <p class="text-base-content/70 mt-4 lg:text-lg">
         {{ t('contact.subtitle') }}
       </p>
     </div>
@@ -40,7 +67,7 @@ const form = useForm({
               class="input w-full"
               :value="field.state.value"
               @input="field.handleChange(($event.target as HTMLInputElement).value)"
-            >
+            />
           </label>
           <p v-if="field.state.meta.errors[0]" class="text-error text-sm">
             {{ field.state.meta.errors[0] }}
@@ -60,7 +87,7 @@ const form = useForm({
               class="input w-full"
               :value="field.state.value"
               @input="field.handleChange(($event.target as HTMLInputElement).value)"
-            >
+            />
           </label>
           <p v-if="field.state.meta.errors[0]" class="text-error text-sm">
             {{ field.state.meta.errors[0] }}
@@ -87,8 +114,8 @@ const form = useForm({
 
       <VButton
         type="submit"
-        class="from-primary via-secondary to-accent text-primary-content mt-2 rounded-full border-none bg-linear-to-r"
-        :loading="form.state.isSubmitting"
+        class="from-primary via-secondary to-accent text-primary-content shadow-pixel mt-2 border-none bg-linear-to-r"
+        :loading="isLoading"
       >
         {{ t('contact.submit') }}
       </VButton>

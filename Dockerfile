@@ -23,3 +23,8 @@ COPY --from=build /app/.output/public /usr/share/nginx/html
 COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
+
+# Coolify (and plain `docker ps`) read this container-level health status
+# directly — nginx:alpine ships wget (busybox) so no extra package needed.
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD wget --quiet --tries=1 --spider http://127.0.0.1/health || exit 1

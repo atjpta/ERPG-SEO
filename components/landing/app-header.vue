@@ -17,13 +17,13 @@ const isHidden = computed(() => !arrivedState.top && directions.bottom)
 
 <template>
   <header
-    class="bg-base-100/80 sticky top-0 z-20 backdrop-blur transition-transform duration-300"
+    class="bg-base-100 sticky top-0 z-20 transition-transform duration-300"
     :class="{ '-translate-y-full': isHidden }"
   >
     <div class="navbar mx-auto max-w-6xl">
       <div class="flex-1">
         <NuxtLink :to="localePath('/')" aria-label="ERPG" class="flex items-center">
-          <img src="/logo2.png" alt="ERPG" class="h-8 w-auto" />
+          <img src="/logo2.png" alt="ERPG" class="h-8 w-auto">
         </NuxtLink>
       </div>
       <nav class="hidden gap-6 md:flex">
@@ -31,7 +31,7 @@ const isHidden = computed(() => !arrivedState.top && directions.bottom)
           v-for="link in navLinks"
           :key="link.key"
           :to="localePath('/') + link.href"
-          class="link link-hover text-sm"
+          class="link link-hover text-sm lg:text-base"
         >
           {{ t(`nav.${link.key}`) }}
         </NuxtLink>
@@ -41,7 +41,7 @@ const isHidden = computed(() => !arrivedState.top && directions.bottom)
         <LandingThemeSwitcher />
         <NuxtLink
           :to="localePath('/') + '#download'"
-          class="btn btn-sm from-primary via-secondary to-accent text-primary-content rounded-full border-none bg-linear-to-r"
+          class="btn btn-sm from-primary via-secondary to-accent text-primary-content shadow-pixel border-none bg-linear-to-r"
         >
           {{ t('nav.cta') }}
         </NuxtLink>

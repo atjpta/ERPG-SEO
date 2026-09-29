@@ -118,7 +118,8 @@
     "email": "Email",
     "message": "Message",
     "submit": "Send message",
-    "success": "Thanks — we'll be in touch."
+    "success": "Thanks — we'll be in touch.",
+    "error": "Couldn't send your message — please try again in a moment."
   },
   "error": {
     "404": {

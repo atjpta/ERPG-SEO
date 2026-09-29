@@ -140,6 +140,10 @@ NUXT_PUBLIC_SITE_URL=https://your-domain.com docker compose up --build
 
 The site is then served at `http://localhost:8080`. `docker/nginx.conf` serves each prerendered route as a real file (no SPA fallback), maps `404.html` to real 404 responses, and long-caches the hashed `_nuxt/` assets.
 
+### Health check (Coolify)
+
+The image exposes `GET /health` — a fixed `200 ok` response with no disk I/O, and the `Dockerfile` declares a `HEALTHCHECK` against it, which `docker ps` and Coolify both read directly. If deploying on [Coolify](https://coolify.io), set **Health Check Path** to `/health` in the app's settings (Coolify's default `/` would also work here since every route is a real prerendered file, but `/health` avoids serving a full page just to check liveness).
+
 ## License
 
 [MIT](./LICENSE)

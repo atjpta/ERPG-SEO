@@ -118,7 +118,8 @@
     "email": "Email",
     "message": "Nội dung",
     "submit": "Gửi liên hệ",
-    "success": "Cảm ơn — chúng tôi sẽ liên hệ lại sớm."
+    "success": "Cảm ơn — chúng tôi sẽ liên hệ lại sớm.",
+    "error": "Không gửi được tin nhắn — vui lòng thử lại sau."
   },
   "error": {
     "404": {

@@ -143,25 +143,27 @@ Dùng **@tanstack/vue-form** + **Zod**. Không dùng adapter — validate thủ 
 
 Để thêm rule mới: thêm case vào `issueToI18nKey()` trong `useZodForm.ts` và thêm key vào cả `en.json`/`vi.json`.
 
-Submit handler trong `contact-section.vue` chỉ log ra console + hiện toast — nối vào backend thật hoặc form service (Formspree, Resend...) khi triển khai thật.
+Submit handler trong `contact-section.vue` POST thẳng tới [Web3Forms](https://web3forms.com) từ browser — site này là static, không có backend để giấu key phía sau. Access key đọc qua `useRuntimeConfig().public.web3formsKey` (env `NUXT_PUBLIC_WEB3FORMS_KEY`, xem `.env.example`), key này công khai theo thiết kế của Web3Forms (như Stripe publishable key) nên expose ra client không sao. Đổi form service khác (Formspree, Resend...) thì thay lại phần `fetch` trong `onSubmit`.
 
 ---
 
-## Design system — "Gradient hiện đại"
+## Design system — "Pixel RPG"
 
-Hướng thiết kế: nền trắng/tối sạch, 1 gradient 3-stop (primary → secondary → accent = indigo → hồng → xanh) làm điểm nhấn, không phải màu nền tràn lan.
+Hướng thiết kế: retro pixel-art — góc vuông tuyệt đối, phân tách bằng tương phản nền (bg-base-100/base-200 xen kẽ) + drop-shadow cứng (không blur) thay vì viền, gradient 3-stop (primary → secondary → accent = indigo → hồng → xanh) chỉ làm điểm nhấn màu. **Hạn chế dùng border** — chỉ thêm khi thật sự cần phân tách mà bg-contrast/shadow không đủ.
 
 - **Màu**: dùng nguyên bảng màu gốc của DaisyUI (`primary` = indigo, `secondary` = hồng) — chỉ override `--color-accent` thành xanh trong `assets/css/main.css` (2 block `@plugin 'daisyui/theme' { name: 'light'/'dark'; ... }`) để 3 màu tạo thành gradient đẹp. **Không** đổi `primary`/`secondary` gốc trừ khi đổi cả gradient.
-- **Gradient dùng ở đâu**: CTA chính (nút, badge "Most popular", CTA section, avatar tròn testimonials) — dùng tổ hợp class `from-primary via-secondary to-accent bg-linear-to-r` (hoặc `-to-br`). **Không** dùng `bg-gradient-to-r` (tên cũ Tailwind v3) — Tailwind v4 đổi thành `bg-linear-to-r`.
+- **Gradient dùng ở đâu**: CTA chính (nút, CTA section, icon feature, avatar testimonials) — dùng tổ hợp class `from-primary via-secondary to-accent bg-linear-to-r` (hoặc `-to-br`). **Không** dùng `bg-gradient-to-r` (tên cũ Tailwind v3) — Tailwind v4 đổi thành `bg-linear-to-r`.
 - **`.text-gradient`** (định nghĩa trong `main.css`) — gradient text, dùng cho badge/eyebrow nhỏ, không dùng cho heading chính (heading chính giữ màu solid `base-content` để dễ đọc).
-- **`.bg-gradient-brand`** — 3 blob gradient mờ (`blur(80px)`, `opacity: 0.25`) làm nền trang trí phía sau hero, đặt trong `<div aria-hidden="true">` tuyệt đối `-z-10`, section cha phải có `relative overflow-hidden`.
-- **Card**: không dùng `shadow-sm` nữa — dùng `border border-base-300` (flat, tối giản) + `hover:border-primary/40 transition-colors` nếu muốn hover feedback. Card nổi bật (ví dụ pricing "Pro") dùng `border-primary border-2` thay vì shadow.
-- **Nút CTA chính**: `rounded-full` (pill) + gradient nền, tương phản `text-primary-content`. Nút phụ/outline giữ `btn-ghost`/`btn-outline` như DaisyUI mặc định.
-- **Icon feature**: bọc trong ô vuông bo góc (`rounded-xl`) nền gradient `from-primary via-secondary to-accent`, icon màu `text-primary-content` — không để icon trần trên nền trong suốt.
-- **Font**: 2 font qua Google Fonts, load bằng `<link>` trong `nuxt.config.ts` (`app.head.link`) — **không** dùng CSS `@import url(...)` vì Lightning CSS sẽ warn "@import phải đứng trước rule khác" (do `@import 'tailwindcss'` tự expand ra rule trước nó) và có thể bị browser bỏ qua.
-  - `--font-sans: 'Inter', ...` — áp cho `body` (nội dung, form, nav).
-  - `--font-display: 'Sora', ...` — áp global cho `h1, h2, h3` trong `main.css`, **không** cần thêm class `font-display` vào từng heading trong section. Chỉ dùng class `font-display` thủ công cho chỗ không phải `<h1-3>` nhưng muốn font display (ví dụ brand text trong header/footer).
-- **Radius**: `--radius-box`/`--radius-field` tăng lên `1.25rem`/`0.75rem` (bo tròn hơn mặc định DaisyUI) cho cảm giác hiện đại — override trong cùng 2 block theme ở trên.
+- **`.bg-gradient-brand`** — pixel-grid nền (2 `linear-gradient` kẻ ô vuông `32px`, không blur — pixel art không dùng blur) làm nền trang trí phía sau hero, đặt trong `<div aria-hidden="true">` tuyệt đối `-z-10`, section cha phải có `relative overflow-hidden`.
+- **`.shadow-pixel`** (định nghĩa trong `main.css`) — drop-shadow cứng `4px 4px 0 0 var(--color-base-content)` + hiệu ứng nhấn xuống khi `:active` (translate 4px, tắt shadow). Dùng độc lập, **không cần border** — dựa vào nền của element (thường `bg-base-100`/`bg-base-200`, tương phản với nền section cha) để mắt phân biệt được khối. Nếu nút có nền/chữ cố định không đổi theo theme (như nút trắng-chữ-đen trong `cta-section.vue`), dùng shadow cứng viết tay (`shadow-[4px_4px_0_0_#000]` + `active:translate-x-1 active:translate-y-1 active:shadow-none`) thay vì `.shadow-pixel` — biến `--color-base-content` đổi theo theme sẽ lệch màu với nền cố định.
+- **Card**: không border — nền `bg-base-100` (section cha `bg-base-200`) hoặc ngược lại `bg-base-200` (section cha mặc định) để tự tương phản, + `hover:shadow-pixel hover:-translate-y-1 transition-transform` cho hiệu ứng "nhấc lên" khi hover. Không dùng `shadow-sm`/soft shadow, không dùng `border-base-300`.
+- **Nút CTA chính**: góc vuông (bỏ `rounded-full`) + `.shadow-pixel` (không border, `border-none` nếu DaisyUI tự thêm viền theo màu variant) + gradient nền, tương phản `text-primary-content`. Nút phụ giữ nền `bg-base-200` (không dùng `btn-ghost` trong suốt vì `.shadow-pixel` cần một khối nền để bóng có chỗ bám) + `.shadow-pixel`.
+- **Icon feature**: bọc trong ô vuông (không bo góc, không border) nền gradient `from-primary via-secondary to-accent`, icon màu `text-primary-content` — không để icon trần trên nền trong suốt.
+- **Font**: 2 font pixel qua Google Fonts, load bằng `<link>` trong `nuxt.config.ts` (`app.head.link`) — **không** dùng CSS `@import url(...)` vì Lightning CSS sẽ warn "@import phải đứng trước rule khác" (do `@import 'tailwindcss'` tự expand ra rule trước nó) và có thể bị browser bỏ qua. **Chỉ 2 font này** hỗ trợ đầy đủ dấu tiếng Việt trong nhóm font pixel phổ biến — nhiều font pixel khác (Press Start 2P, Pixelify Sans, Silkscreen...) **không** có subset `vietnamese`, sẽ khiến chữ có dấu bị rớt về font fallback giữa chừng câu. Kiểm tra subset trước khi đổi font pixel khác: `curl -s "https://gwfh.mranftl.com/api/fonts/<slug>"` xem field `subsets` có `vietnamese` không.
+  - `--font-sans: 'VT323', ...` (monospace pixel/terminal) — áp cho `body` (nội dung, form, nav).
+  - `--font-display: 'Handjet', 'VT323', ...` (dot-matrix pixel) — áp global cho `h1, h2, h3` trong `main.css`, **không** cần thêm class `font-display` vào từng heading trong section. Chỉ dùng class `font-display` thủ công cho chỗ không phải `<h1-3>` nhưng muốn font display (ví dụ brand text trong header/footer).
+  - `VT323` render nhỏ hơn cỡ chữ danh nghĩa — `html { font-size: 112.5% }` trong `main.css` bù lại để các class `text-*` (rem-based) của Tailwind vẫn đọc được, không cần chỉnh từng chỗ dùng `text-*`.
+- **Radius**: `--radius-box`/`--radius-field`/`--radius-selector` = `0` (góc vuông tuyệt đối, không bo) — override trong cùng 2 block theme ở trên. Các utility class Tailwind literal (`rounded-full`, `rounded-xl`...) không đọc token này — phải tự bỏ ở từng nơi dùng, xem các component trong `components/landing/` làm ví dụ.
 
 ---
 

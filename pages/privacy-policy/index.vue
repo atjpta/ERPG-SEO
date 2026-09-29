@@ -9,10 +9,10 @@ interface Section {
 }
 
 const sections = computed<Section[]>(() =>
-  (tm('legal.privacy.sections') as Record<string, MessageNode>[]).map((section) => ({
+  (tm('legal.privacy.sections') as Record<string, MessageNode>[]).map(section => ({
     heading: rt(section.heading as MessageNode),
     body: rt(section.body as MessageNode),
-  }))
+  })),
 )
 
 useSeoMeta({
@@ -29,7 +29,9 @@ useSeoMeta({
     <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
       {{ t('legal.privacy.title') }}
     </h1>
-    <p class="text-base-content/60 mt-3 text-sm">{{ t('legal.lastUpdated') }}: 2026-09-29</p>
+    <p class="text-base-content/60 mt-3 text-sm">
+      {{ t('legal.lastUpdated') }}: 2026-09-29
+    </p>
     <p class="text-base-content/80 mt-8 leading-relaxed">
       {{ t('legal.privacy.intro') }}
     </p>

@@ -10,35 +10,60 @@
    blue" alongside the stock primary/secondary — gives the gradient utilities
    below (.text-gradient, .bg-gradient-brand) a 3-stop brand gradient without
    redefining the whole palette. */
+/* Pixel-art design system: hard corners, no blur, depth via flat bg-contrast
+   + hard shadows rather than borders (kept minimal by design). */
 @plugin 'daisyui/theme' {
   name: 'light';
   --color-accent: oklch(65% 0.2 250);
   --color-accent-content: oklch(97% 0.02 250);
-  --radius-box: 1.25rem;
-  --radius-field: 0.75rem;
+  --radius-box: 0;
+  --radius-field: 0;
+  --radius-selector: 0;
 }
 @plugin 'daisyui/theme' {
   name: 'dark';
   --color-accent: oklch(70% 0.18 250);
   --color-accent-content: oklch(15% 0.02 250);
-  --radius-box: 1.25rem;
-  --radius-field: 0.75rem;
+  --radius-box: 0;
+  --radius-field: 0;
+  --radius-selector: 0;
+}
+
+/* Self-hosted pixel font — verified to cover all Vietnamese diacritics
+   (checked its cmap directly; no Google Fonts subset metadata to rely on
+   for a non-Google font). */
+@font-face {
+  font-family: 'DeArPix';
+  src: url('/fonts/dearpix-2-01.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 @theme {
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --font-display: 'Sora', 'Inter', ui-sans-serif, sans-serif;
+  --font-sans: 'DeArPix', ui-monospace, monospace;
+  --font-display: 'DeArPix', ui-monospace, monospace;
 }
 
 body {
   font-family: var(--font-sans);
+  /* DeArPix only ships a single (Regular) weight — without this, the
+     browser fakes bold by algorithmically thickening strokes wherever
+     `font-bold`/`font-semibold` is used, which blurs this pixel font's
+     crisp edges. Disabling synthesis keeps every weight rendering at the
+     font's real (Regular) weight instead. */
+  font-synthesis: none;
 }
 
 h1,
 h2,
 h3 {
   font-family: var(--font-display);
-  letter-spacing: -0.02em;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  /* Extra headroom for stacked Vietnamese diacritics (e.g. "huyền") in this
+     pixel font — default tight leading crops them. */
+  line-height: 1.35;
 }
 
 /* Gradient text — wrap the word/phrase that should pop, e.g. in a hero <h1>. */
@@ -53,16 +78,47 @@ h3 {
   -webkit-text-fill-color: transparent;
 }
 
-/* Soft blurred gradient blobs — absolutely positioned behind hero content,
-   `-z-10` + `overflow-hidden` on the parent section. Decorative only, so it's
+/* Flat pixel-grid backdrop (an RPG map tile grid, not a soft blur — pixel art
+   doesn't do blur) — absolutely positioned behind hero content, `-z-10` +
+   `overflow-hidden` on the parent section. Decorative only, so it's
    `aria-hidden` in markup, not something a crawler needs to see. */
 .bg-gradient-brand {
   background-image:
-    radial-gradient(circle at 20% 20%, var(--color-primary) 0%, transparent 60%),
-    radial-gradient(circle at 80% 30%, var(--color-secondary) 0%, transparent 60%),
-    radial-gradient(circle at 50% 80%, var(--color-accent) 0%, transparent 60%);
-  filter: blur(80px);
-  opacity: 0.25;
+    linear-gradient(var(--color-base-content) 2px, transparent 2px),
+    linear-gradient(90deg, var(--color-base-content) 2px, transparent 2px);
+  background-size: 32px 32px;
+  opacity: 0.06;
+}
+
+/* Hard drop-shadow + press-down effect for pixel-style buttons. Used
+   standalone (no border) — rely on alternating bg-base-100/base-200 between
+   a section and its cards for separation instead of a border.
+
+   Only use this (or anything else that transitions `transform`) on an
+   element that ISN'T also driven by `v-motion` — `v-motion` interpolates
+   `transform` itself every frame via inline styles, and a competing CSS
+   `transition: transform ...` on the same node fights that frame-by-frame,
+   which is what made the scroll-reveal animations feel janky. For a card
+   that has `v-motion` on it, use `.hover-shadow-pixel` below instead (it
+   only ever touches `box-shadow`). */
+.shadow-pixel {
+  box-shadow: 4px 4px 0 0 var(--color-base-content);
+  transition:
+    transform 0.1s steps(2),
+    box-shadow 0.1s steps(2);
+}
+.shadow-pixel:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+/* Hover-only hard shadow — box-shadow only, never `transform` — safe to
+   combine with `v-motion` on the same element. */
+.hover-shadow-pixel {
+  transition: box-shadow 0.15s ease;
+}
+.hover-shadow-pixel:hover {
+  box-shadow: 4px 4px 0 0 var(--color-base-content);
 }
 
 /* Soft glow under the top loading bar (NuxtLoadingIndicator in app.vue). */

@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { Toaster } from 'vue-sonner'
+import 'vue-sonner/style.css'
+
 // Sets <html lang>/dir and hreflang <link rel="alternate"> tags per locale —
 // required for search engines to serve the right language variant.
 const head = useLocaleHead()
@@ -22,6 +25,7 @@ useHead(() => ({
 
 <template>
   <NuxtLoadingIndicator color="var(--color-primary)" />
+  <Toaster rich-colors position="top-right" />
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>

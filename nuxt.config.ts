@@ -18,16 +18,9 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/png', href: '/logo.png' },
         { rel: 'apple-touch-icon', href: '/logo.png' },
-        // Google Fonts — Inter (body) + Sora (headings, see main.css). Loaded
-        // as a <link>, not a CSS @import, so it fetches in parallel instead
-        // of blocking on the stylesheet and doesn't trip Lightning CSS's
-        // "@import must precede other rules" ordering check.
-        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-        {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap',
-        },
+        // The pixel font (DeArPix) is self-hosted from public/fonts/ and
+        // declared via @font-face in main.css — no Google Fonts <link>
+        // needed here.
       ],
     },
   },
@@ -40,6 +33,19 @@ export default defineNuxtConfig({
     url: process.env.NUXT_PUBLIC_SITE_URL || 'https://example.com',
     name: 'ERPG',
     defaultLocale: 'en',
+  },
+
+  runtimeConfig: {
+    public: {
+      // Web3Forms access key tied to the destination inbox — get one free at
+      // https://web3forms.com (no account needed, key is emailed instantly).
+      // Exposed to the client because the contact form submits directly to
+      // Web3Forms' API — there's no backend in this static site to hide it
+      // behind, and Web3Forms access keys are meant to be public (like a
+      // Stripe publishable key), rate-limited and domain-restricted on
+      // their end rather than secret.
+      web3formsKey: '',
+    },
   },
   compatibilityDate: '2026-01-01',
 

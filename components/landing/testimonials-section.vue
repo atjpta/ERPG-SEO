@@ -21,10 +21,10 @@ const testimonials = computed<Testimonial[]>(() =>
 <template>
   <section id="testimonials" class="mx-auto max-w-6xl px-6 py-24">
     <div class="mx-auto max-w-2xl text-center">
-      <p class="text-primary text-sm font-semibold">
+      <p class="text-primary text-sm font-semibold lg:text-base">
         {{ t('testimonials.eyebrow') }}
       </p>
-      <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+      <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
         {{ t('testimonials.title') }}
       </h2>
     </div>
@@ -36,23 +36,23 @@ const testimonials = computed<Testimonial[]>(() =>
         v-motion
         :initial="{ opacity: 0, y: 24 }"
         :visible="{ opacity: 1, y: 0, transition: { delay: index * 100 } }"
-        class="card bg-base-100 border-base-300 border"
+        class="card bg-base-200 shadow-[4px_4px_0_0_var(--color-base-content)]"
       >
         <blockquote class="card-body gap-4">
-          <p class="text-base-content/80">
+          <p class="text-base-content/80 lg:text-lg">
             “{{ testimonial.quote }}”
           </p>
           <footer class="mt-2 flex items-center gap-3">
             <div
-              class="from-primary via-secondary to-accent flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-linear-to-br text-sm font-semibold text-white"
+              class="from-primary via-secondary to-accent flex h-10 w-10 shrink-0 items-center justify-center bg-linear-to-br text-sm font-semibold text-white"
             >
               {{ testimonial.name.charAt(0) }}
             </div>
             <div>
-              <p class="font-semibold">
+              <p class="font-semibold lg:text-lg">
                 {{ testimonial.name }}
               </p>
-              <p class="text-base-content/60 text-sm">
+              <p class="text-base-content/60 text-sm lg:text-base">
                 {{ testimonial.role }}
               </p>
             </div>

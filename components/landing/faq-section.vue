@@ -19,10 +19,10 @@ const faqs = computed<FaqItem[]>(() =>
 <template>
   <section id="faq" v-motion-slide-visible-bottom class="mx-auto max-w-3xl px-6 py-24">
     <div class="text-center">
-      <p class="text-primary text-sm font-semibold">
+      <p class="text-primary text-sm font-semibold lg:text-base">
         {{ t('faq.eyebrow') }}
       </p>
-      <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+      <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
         {{ t('faq.title') }}
       </h2>
     </div>
@@ -31,13 +31,13 @@ const faqs = computed<FaqItem[]>(() =>
       <div
         v-for="faq in faqs"
         :key="faq.question"
-        class="collapse-arrow border-base-300 bg-base-100 collapse border"
+        class="collapse-arrow bg-base-200 collapse"
       >
         <input type="radio" name="faq-accordion">
-        <div class="collapse-title font-medium">
+        <div class="collapse-title font-medium lg:text-lg">
           {{ faq.question }}
         </div>
-        <div class="collapse-content text-base-content/70 text-sm">
+        <div class="collapse-content text-base-content/70 text-sm lg:text-base">
           {{ faq.answer }}
         </div>
       </div>
