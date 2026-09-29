@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { Search, Zap, Languages, Palette, LayoutGrid, Mail } from '@lucide/vue'
+import { Swords, Globe, Sparkles, Shield, Users, Smartphone } from '@lucide/vue'
 
 const { t } = useI18n()
 
 const features = [
-  { key: 'seo', icon: Search },
-  { key: 'performance', icon: Zap },
-  { key: 'i18n', icon: Languages },
-  { key: 'theming', icon: Palette },
-  { key: 'components', icon: LayoutGrid },
-  { key: 'forms', icon: Mail },
+  { key: 'combat', icon: Swords },
+  { key: 'world', icon: Globe },
+  { key: 'pixelArt', icon: Sparkles },
+  { key: 'classes', icon: Shield },
+  { key: 'guilds', icon: Users },
+  { key: 'crossplay', icon: Smartphone },
 ]
 </script>
 

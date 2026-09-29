@@ -1,0 +1,10 @@
+services:
+  web:
+    build:
+      context: .
+      args:
+        NUXT_PUBLIC_SITE_URL: ${NUXT_PUBLIC_SITE_URL:-https://example.com}
+        NUXT_APP_BASE_URL: /
+    ports:
+      - '8080:80'
+    restart: unless-stopped

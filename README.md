@@ -123,6 +123,23 @@ Two GitHub Actions workflows live in `.github/workflows/`:
 
 Deploying to a custom domain or a different host (Vercel, Netlify, Cloudflare Pages) instead of GitHub Pages: drop the `NUXT_APP_BASE_URL` override (those hosts serve from the domain root) and point the host at `yarn generate` / `.output/public`.
 
+## Docker
+
+This project runs in Docker. The `Dockerfile` is a two-stage build: a Node stage runs `yarn generate` (so `NUXT_PUBLIC_SITE_URL`/`NUXT_APP_BASE_URL` are baked into the prerendered HTML at build time, same as any other deploy target), then an `nginx:alpine` stage serves the static output from `.output/public` — no Node server runs at runtime.
+
+```bash
+docker build -t erpg-seo --build-arg NUXT_PUBLIC_SITE_URL=https://your-domain.com .
+docker run -p 8080:80 erpg-seo
+```
+
+Or with Compose (reads `NUXT_PUBLIC_SITE_URL` from the environment, defaults to `https://example.com`):
+
+```bash
+NUXT_PUBLIC_SITE_URL=https://your-domain.com docker compose up --build
+```
+
+The site is then served at `http://localhost:8080`. `docker/nginx.conf` serves each prerendered route as a real file (no SPA fallback), maps `404.html` to real 404 responses, and long-caches the hashed `_nuxt/` assets.
+
 ## License
 
 [MIT](./LICENSE)

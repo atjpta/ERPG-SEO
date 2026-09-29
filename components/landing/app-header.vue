@@ -4,7 +4,7 @@ const localePath = useLocalePath()
 
 const navLinks = [
   { key: 'features', href: '#features' },
-  { key: 'pricing', href: '#pricing' },
+  { key: 'download', href: '#download' },
   { key: 'testimonials', href: '#testimonials' },
   { key: 'faq', href: '#faq' },
 ]
@@ -22,29 +22,29 @@ const isHidden = computed(() => !arrivedState.top && directions.bottom)
   >
     <div class="navbar mx-auto max-w-6xl">
       <div class="flex-1">
-        <NuxtLink :to="localePath('/')" class="font-display text-lg font-bold">
-          Landing Page Base
+        <NuxtLink :to="localePath('/')" aria-label="ERPG" class="flex items-center">
+          <img src="/logo2.png" alt="ERPG" class="h-8 w-auto" />
         </NuxtLink>
       </div>
       <nav class="hidden gap-6 md:flex">
-        <a
+        <NuxtLink
           v-for="link in navLinks"
           :key="link.key"
-          :href="link.href"
+          :to="localePath('/') + link.href"
           class="link link-hover text-sm"
         >
           {{ t(`nav.${link.key}`) }}
-        </a>
+        </NuxtLink>
       </nav>
       <div class="flex flex-none items-center gap-2 pl-4">
         <LandingLocaleSwitcher />
         <LandingThemeSwitcher />
-        <a
-          href="#contact"
+        <NuxtLink
+          :to="localePath('/') + '#download'"
           class="btn btn-sm from-primary via-secondary to-accent text-primary-content rounded-full border-none bg-linear-to-r"
         >
           {{ t('nav.cta') }}
-        </a>
+        </NuxtLink>
       </div>
     </div>
   </header>

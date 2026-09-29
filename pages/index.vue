@@ -6,7 +6,7 @@ useSeoMeta({
   description: () => t('seo.description'),
   ogTitle: () => t('seo.title'),
   ogDescription: () => t('seo.description'),
-  ogImage: '/og-image.png',
+  ogImage: '/logo2.png',
   twitterCard: 'summary_large_image',
 })
 </script>
@@ -16,7 +16,7 @@ useSeoMeta({
     <LandingHeroSection />
     <LandingFeaturesSection />
     <LandingTestimonialsSection />
-    <LandingPricingSection />
+    <LandingDownloadSection />
     <LandingFaqSection />
     <LandingCtaSection />
     <LandingContactSection />

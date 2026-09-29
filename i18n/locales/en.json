@@ -1,139 +1,119 @@
 {
   "seo": {
-    "title": "Landing Page Base — Nuxt SEO Starter",
-    "description": "A batteries-included Nuxt 4 starter for SEO-driven landing pages, with Tailwind CSS, DaisyUI, i18n, and static generation out of the box."
+    "title": "ERPG — Pixel Action RPG MMO",
+    "description": "ERPG is a pixel-art action RPG MMO — real-time combat, a persistent open world, deep character builds, and guild PvP. Free to play, cross-platform."
   },
   "nav": {
     "features": "Features",
-    "pricing": "Pricing",
-    "testimonials": "Testimonials",
+    "download": "Download",
+    "testimonials": "Players",
     "faq": "FAQ",
-    "contact": "Contact",
-    "cta": "Get started"
+    "contact": "Community",
+    "cta": "Play Free"
   },
   "hero": {
-    "eyebrow": "New · Nuxt 4 + Tailwind CSS 4",
-    "title": "Ship an SEO-ready landing page in a day, not a sprint",
-    "subtitle": "A base template with the sections, SEO plumbing, and design tokens every marketing page needs — swap the copy, keep the foundations.",
-    "primaryCta": "Get started",
-    "secondaryCta": "See features"
+    "eyebrow": "Now in Open Beta",
+    "title": "Forge your legend in ERPG, the pixel-art action RPG MMO",
+    "subtitle": "Real-time combat, a living open world, and thousands of players fighting, trading, and raiding alongside you — free to play on PC and mobile.",
+    "primaryCta": "Play Free Now",
+    "secondaryCta": "Watch trailer",
+    "platformsLabel": "Available on",
+    "platforms": {
+      "pc": "Windows PC",
+      "ios": "iOS",
+      "android": "Android"
+    }
   },
   "features": {
     "eyebrow": "Features",
-    "title": "Everything a landing page needs, already wired up",
-    "subtitle": "Static generation, sitemap, robots.txt, and JSON-LD are configured on day one — spend your time on the message, not the plumbing.",
+    "title": "A full MMO packed into a pixel-art world",
+    "subtitle": "Everything you'd expect from an action RPG MMO — fast combat, real stakes, and a world worth exploring.",
     "items": {
-      "seo": {
-        "title": "Real SEO, not just meta tags",
-        "description": "Static generation means every route ships as full HTML — crawlers see your content without executing JavaScript."
+      "combat": {
+        "title": "Real-time action combat",
+        "description": "Dodge, combo, and unleash skill chains in fast, skill-based battles — no auto-attack, every hit is yours to land."
       },
-      "performance": {
-        "title": "Fast by default",
-        "description": "Nuxt + Vite + Tailwind CSS 4 ship a minimal bundle with no unused CSS or JS shipped to the client."
+      "world": {
+        "title": "A persistent open world",
+        "description": "Explore a seamless MMO world shared with thousands of adventurers, from starter fields to endgame dungeons."
       },
-      "i18n": {
-        "title": "Multi-language ready",
-        "description": "English and Vietnamese locales out of the box — add a key to both files and you're done."
+      "pixelArt": {
+        "title": "Hand-crafted pixel art",
+        "description": "Every character, monster, and biome is hand-drawn pixel art, animated frame by frame for a retro feel with modern polish."
       },
-      "theming": {
-        "title": "Themeable design system",
-        "description": "DaisyUI themes switchable at runtime and persisted for the visitor, so rebranding is a config change, not a rewrite."
+      "classes": {
+        "title": "Deep classes & builds",
+        "description": "Pick a class and specialize your skill tree, gear, and playstyle — respec anytime as new strategies emerge."
       },
-      "components": {
-        "title": "Reusable section library",
-        "description": "Hero, features, pricing, testimonials, FAQ, and CTA sections you can reorder, restyle, or copy into the next landing page."
+      "guilds": {
+        "title": "Guilds, raids & PvP",
+        "description": "Form a guild, siege territory, and battle other players in arenas and open-world PvP zones."
       },
-      "forms": {
-        "title": "Validated contact form",
-        "description": "Zod-backed form validation with i18n error messages, ready to wire up to your backend or a form service."
+      "crossplay": {
+        "title": "Cross-platform play",
+        "description": "One account, one world — play on PC or mobile and pick up right where you left off."
       }
     }
   },
   "testimonials": {
-    "eyebrow": "Testimonials",
-    "title": "Trusted by teams shipping landing pages fast",
+    "eyebrow": "Players",
+    "title": "Loved by an adventuring community of thousands",
     "items": [
       {
-        "quote": "We swapped the copy and shipped a new campaign page the same afternoon.",
-        "name": "Alex Rivera",
-        "role": "Growth Lead, Acme"
+        "quote": "The combat feels tighter than most action RPGs I've played on PC, and it's running on my phone.",
+        "name": "Minh Tran",
+        "role": "Guild Leader, Ashen Vow"
       },
       {
-        "quote": "The SEO setup alone saved us a full sprint of configuration.",
-        "name": "Priya Shah",
-        "role": "Marketing Engineer, Nimbus"
+        "quote": "I've sunk 200 hours in and I'm still finding new dungeons and builds to try.",
+        "name": "Jess Okafor",
+        "role": "Top 100 PvP Ladder"
       },
       {
-        "quote": "Clean sections, no bloat — exactly what a base template should be.",
+        "quote": "The pixel art world is gorgeous — every zone has its own mood and soundtrack.",
         "name": "Daniel Kim",
-        "role": "Founder, Loopwork"
+        "role": "Content Creator"
       }
     ]
   },
-  "pricing": {
-    "eyebrow": "Pricing",
-    "title": "Simple, transparent pricing",
-    "subtitle": "Swap in your real plans — this section is a template, not a product.",
-    "perMonth": "/month",
-    "cta": "Choose plan",
-    "plans": {
-      "starter": {
-        "name": "Starter",
-        "price": "$0",
-        "description": "For trying things out.",
-        "features": ["1 landing page", "Community support", "Basic analytics"]
-      },
-      "pro": {
-        "name": "Pro",
-        "price": "$29",
-        "description": "For growing teams.",
-        "features": [
-          "Unlimited landing pages",
-          "Priority support",
-          "Advanced analytics",
-          "Custom domain"
-        ],
-        "badge": "Most popular"
-      },
-      "enterprise": {
-        "name": "Enterprise",
-        "price": "Custom",
-        "description": "For large organizations.",
-        "features": ["Everything in Pro", "Dedicated support", "SLA", "SSO"]
-      }
-    }
+  "download": {
+    "eyebrow": "Download",
+    "title": "Free to play, on every platform",
+    "subtitle": "ERPG is free forever, with cross-platform progression — pick your platform and jump in.",
+    "cta": "Download",
+    "note": "No purchase required to play. In-game purchases are optional and cosmetic only."
   },
   "faq": {
     "eyebrow": "FAQ",
     "title": "Frequently asked questions",
     "items": [
       {
-        "question": "Is this template production-ready?",
-        "answer": "It's a base template — the sections, SEO wiring, and design system are production-ready; the copy and content are placeholders for you to replace."
+        "question": "Is ERPG free to play?",
+        "answer": "Yes — ERPG is free to play forever. Founder Packs are optional and only offer cosmetics and convenience, never power you can't earn in-game."
       },
       {
-        "question": "Does it really help with SEO?",
-        "answer": "Yes — pages are statically generated at build time, so search engines receive complete HTML per route instead of a JavaScript shell."
+        "question": "What platforms can I play on?",
+        "answer": "ERPG runs on PC (Windows/macOS) and mobile (iOS/Android) with full cross-platform play and progression on a single account."
       },
       {
-        "question": "Can I add more languages?",
-        "answer": "Add a locale to `i18n/locales/` and register it in `nuxt.config.ts` — every section already reads its copy from i18n keys."
+        "question": "Does ERPG have PvP?",
+        "answer": "Yes — arena duels, guild sieges, and open-world PvP zones with dedicated rewards and rankings."
       },
       {
-        "question": "How do I deploy it?",
-        "answer": "`yarn generate` outputs static files to `.output/public`; the included GitHub Actions workflow deploys that folder to GitHub Pages on every push."
+        "question": "How often is new content added?",
+        "answer": "We ship balance patches monthly and a major content update — new zones, dungeons, or classes — every season."
       }
     ]
   },
   "cta": {
-    "title": "Ready to launch your next landing page?",
-    "subtitle": "Clone this template, replace the copy, and ship.",
-    "button": "Get started"
+    "title": "Your adventure in ERPG starts now",
+    "subtitle": "Join thousands of players already exploring the world — free to play, no commitment.",
+    "button": "Play Free Now"
   },
   "contact": {
-    "eyebrow": "Contact",
-    "title": "Get in touch",
-    "subtitle": "This form validates on the client — wire the submit handler up to your backend or a form service.",
+    "eyebrow": "Community",
+    "title": "Join the community",
+    "subtitle": "Questions, bug reports, or feedback — reach out and the team (or a fellow adventurer) will get back to you.",
     "name": "Name",
     "email": "Email",
     "message": "Message",
@@ -152,8 +132,11 @@
     "backHome": "Back to home"
   },
   "footer": {
-    "tagline": "A Nuxt base template for SEO-driven landing pages.",
-    "rights": "All rights reserved."
+    "tagline": "A pixel-art action RPG MMO. Free to play.",
+    "rights": "All rights reserved.",
+    "legal": "Legal",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service"
   },
   "validation": {
     "required": "This field is required.",
@@ -161,5 +144,92 @@
     "min": "Must be at least {min} characters.",
     "max": "Must be at most {max} characters.",
     "invalid": "This value is invalid."
+  },
+  "legal": {
+    "lastUpdated": "Last updated",
+    "privacy": {
+      "seoTitle": "Privacy Policy — ERPG",
+      "seoDescription": "How ERPG collects, uses, and protects your personal data when you play the game or visit this website.",
+      "title": "Privacy Policy",
+      "intro": "This Privacy Policy explains how ERPG (\"we\", \"us\", or \"the game\") collects, uses, and protects your information when you visit this website or play ERPG.",
+      "sections": [
+        {
+          "heading": "Information we collect",
+          "body": "We may collect account information (username, email address), gameplay data (progress, in-game purchases, device and platform), and website usage data (pages visited, browser type) collected through standard analytics and cookies."
+        },
+        {
+          "heading": "How we use your information",
+          "body": "We use collected information to operate and improve ERPG, process purchases, provide customer support, communicate service updates, and maintain fair play and security across the game."
+        },
+        {
+          "heading": "Sharing of information",
+          "body": "We do not sell your personal information. We may share limited data with service providers who help us operate the game (hosting, payment processing, analytics), and only as required by law."
+        },
+        {
+          "heading": "Cookies",
+          "body": "This website uses cookies to remember your preferences (such as language and theme) and to understand how visitors use the site. You can disable cookies in your browser settings, though some features may not work correctly."
+        },
+        {
+          "heading": "Data retention & security",
+          "body": "We retain account and gameplay data for as long as your account is active, and take reasonable technical measures to protect it from unauthorized access."
+        },
+        {
+          "heading": "Your rights",
+          "body": "You may request access to, correction of, or deletion of your personal data by contacting us through the community channel on this website."
+        },
+        {
+          "heading": "Changes to this policy",
+          "body": "We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated revision date."
+        },
+        {
+          "heading": "Contact us",
+          "body": "If you have questions about this Privacy Policy, please reach out via the contact section on our homepage."
+        }
+      ]
+    },
+    "terms": {
+      "seoTitle": "Terms of Service — ERPG",
+      "seoDescription": "The terms and conditions governing your use of ERPG and this website.",
+      "title": "Terms of Service",
+      "intro": "These Terms of Service (\"Terms\") govern your access to and use of ERPG (the \"game\") and this website. By creating an account or playing ERPG, you agree to these Terms.",
+      "sections": [
+        {
+          "heading": "Eligibility",
+          "body": "You must be at least 13 years old, or the minimum age of digital consent in your country, to create an account and play ERPG. If you are under the age of majority, you must have permission from a parent or guardian."
+        },
+        {
+          "heading": "Accounts",
+          "body": "You are responsible for maintaining the confidentiality of your account credentials and for all activity that occurs under your account. Notify us immediately of any unauthorized use."
+        },
+        {
+          "heading": "Acceptable use",
+          "body": "You agree not to cheat, exploit bugs, use unauthorized third-party software, harass other players, or attempt to disrupt the game's servers or economy. Violations may result in suspension or termination of your account."
+        },
+        {
+          "heading": "Virtual items & purchases",
+          "body": "Premium currency, Founder Packs, and other in-game items are licensed to you for use within ERPG and hold no real-world monetary value. Purchases are generally non-refundable except where required by law."
+        },
+        {
+          "heading": "Intellectual property",
+          "body": "ERPG, including its name, logo, artwork, and code, is owned by us or our licensors. You may not copy, modify, or redistribute any part of the game or this website without permission."
+        },
+        {
+          "heading": "Termination",
+          "body": "We may suspend or terminate your account for violation of these Terms or applicable law, at our discretion, with or without notice."
+        },
+        {
+          "heading": "Disclaimer & limitation of liability",
+          "body": "ERPG is provided \"as is\" without warranties of any kind. To the fullest extent permitted by law, we are not liable for indirect or consequential damages arising from your use of the game."
+        },
+        {
+          "heading": "Changes to these Terms",
+          "body": "We may update these Terms from time to time. Continued use of ERPG after changes take effect constitutes acceptance of the revised Terms."
+        },
+        {
+          "heading": "Contact us",
+          "body": "Questions about these Terms can be sent via the contact section on our homepage."
+        }
+      ]
+    }
   }
 }

@@ -13,8 +13,14 @@ const { t } = useI18n()
     <p class="mt-4 opacity-90">
       {{ t('cta.subtitle') }}
     </p>
-    <a href="#contact" class="btn btn-lg mt-8 rounded-full bg-white text-black hover:bg-white/90">{{
-      t('cta.button')
-    }}</a>
+    <a
+      href="#download"
+      class="btn btn-lg mt-8 rounded-full bg-white text-black hover:bg-white/90"
+      >{{ t('cta.button') }}</a
+    >
+    <p class="mt-4 text-sm opacity-80">
+      {{ t('hero.platformsLabel') }} {{ t('hero.platforms.pc') }} · {{ t('hero.platforms.ios') }} ·
+      {{ t('hero.platforms.android') }}
+    </p>
   </section>
 </template>

@@ -16,7 +16,8 @@ export default defineNuxtConfig({
     baseURL: process.env.NUXT_APP_BASE_URL || '/',
     head: {
       link: [
-        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'icon', type: 'image/png', href: '/logo.png' },
+        { rel: 'apple-touch-icon', href: '/logo.png' },
         // Google Fonts — Inter (body) + Sora (headings, see main.css). Loaded
         // as a <link>, not a CSS @import, so it fetches in parallel instead
         // of blocking on the stylesheet and doesn't trip Lightning CSS's
@@ -37,7 +38,7 @@ export default defineNuxtConfig({
   // schema.org from `site` below. Set the real production URL before deploying.
   site: {
     url: process.env.NUXT_PUBLIC_SITE_URL || 'https://example.com',
-    name: 'Landing Page Base',
+    name: 'ERPG',
     defaultLocale: 'en',
   },
   compatibilityDate: '2026-01-01',
