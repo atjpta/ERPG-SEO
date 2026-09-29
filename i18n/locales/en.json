@@ -1,0 +1,165 @@
+{
+  "seo": {
+    "title": "Landing Page Base — Nuxt SEO Starter",
+    "description": "A batteries-included Nuxt 4 starter for SEO-driven landing pages, with Tailwind CSS, DaisyUI, i18n, and static generation out of the box."
+  },
+  "nav": {
+    "features": "Features",
+    "pricing": "Pricing",
+    "testimonials": "Testimonials",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "cta": "Get started"
+  },
+  "hero": {
+    "eyebrow": "New · Nuxt 4 + Tailwind CSS 4",
+    "title": "Ship an SEO-ready landing page in a day, not a sprint",
+    "subtitle": "A base template with the sections, SEO plumbing, and design tokens every marketing page needs — swap the copy, keep the foundations.",
+    "primaryCta": "Get started",
+    "secondaryCta": "See features"
+  },
+  "features": {
+    "eyebrow": "Features",
+    "title": "Everything a landing page needs, already wired up",
+    "subtitle": "Static generation, sitemap, robots.txt, and JSON-LD are configured on day one — spend your time on the message, not the plumbing.",
+    "items": {
+      "seo": {
+        "title": "Real SEO, not just meta tags",
+        "description": "Static generation means every route ships as full HTML — crawlers see your content without executing JavaScript."
+      },
+      "performance": {
+        "title": "Fast by default",
+        "description": "Nuxt + Vite + Tailwind CSS 4 ship a minimal bundle with no unused CSS or JS shipped to the client."
+      },
+      "i18n": {
+        "title": "Multi-language ready",
+        "description": "English and Vietnamese locales out of the box — add a key to both files and you're done."
+      },
+      "theming": {
+        "title": "Themeable design system",
+        "description": "DaisyUI themes switchable at runtime and persisted for the visitor, so rebranding is a config change, not a rewrite."
+      },
+      "components": {
+        "title": "Reusable section library",
+        "description": "Hero, features, pricing, testimonials, FAQ, and CTA sections you can reorder, restyle, or copy into the next landing page."
+      },
+      "forms": {
+        "title": "Validated contact form",
+        "description": "Zod-backed form validation with i18n error messages, ready to wire up to your backend or a form service."
+      }
+    }
+  },
+  "testimonials": {
+    "eyebrow": "Testimonials",
+    "title": "Trusted by teams shipping landing pages fast",
+    "items": [
+      {
+        "quote": "We swapped the copy and shipped a new campaign page the same afternoon.",
+        "name": "Alex Rivera",
+        "role": "Growth Lead, Acme"
+      },
+      {
+        "quote": "The SEO setup alone saved us a full sprint of configuration.",
+        "name": "Priya Shah",
+        "role": "Marketing Engineer, Nimbus"
+      },
+      {
+        "quote": "Clean sections, no bloat — exactly what a base template should be.",
+        "name": "Daniel Kim",
+        "role": "Founder, Loopwork"
+      }
+    ]
+  },
+  "pricing": {
+    "eyebrow": "Pricing",
+    "title": "Simple, transparent pricing",
+    "subtitle": "Swap in your real plans — this section is a template, not a product.",
+    "perMonth": "/month",
+    "cta": "Choose plan",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "price": "$0",
+        "description": "For trying things out.",
+        "features": ["1 landing page", "Community support", "Basic analytics"]
+      },
+      "pro": {
+        "name": "Pro",
+        "price": "$29",
+        "description": "For growing teams.",
+        "features": [
+          "Unlimited landing pages",
+          "Priority support",
+          "Advanced analytics",
+          "Custom domain"
+        ],
+        "badge": "Most popular"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "price": "Custom",
+        "description": "For large organizations.",
+        "features": ["Everything in Pro", "Dedicated support", "SLA", "SSO"]
+      }
+    }
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Frequently asked questions",
+    "items": [
+      {
+        "question": "Is this template production-ready?",
+        "answer": "It's a base template — the sections, SEO wiring, and design system are production-ready; the copy and content are placeholders for you to replace."
+      },
+      {
+        "question": "Does it really help with SEO?",
+        "answer": "Yes — pages are statically generated at build time, so search engines receive complete HTML per route instead of a JavaScript shell."
+      },
+      {
+        "question": "Can I add more languages?",
+        "answer": "Add a locale to `i18n/locales/` and register it in `nuxt.config.ts` — every section already reads its copy from i18n keys."
+      },
+      {
+        "question": "How do I deploy it?",
+        "answer": "`yarn generate` outputs static files to `.output/public`; the included GitHub Actions workflow deploys that folder to GitHub Pages on every push."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to launch your next landing page?",
+    "subtitle": "Clone this template, replace the copy, and ship.",
+    "button": "Get started"
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Get in touch",
+    "subtitle": "This form validates on the client — wire the submit handler up to your backend or a form service.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Send message",
+    "success": "Thanks — we'll be in touch."
+  },
+  "error": {
+    "404": {
+      "title": "Page not found",
+      "message": "The page you're looking for doesn't exist or has moved."
+    },
+    "500": {
+      "title": "Something went wrong",
+      "message": "An unexpected error occurred. Try again in a moment."
+    },
+    "backHome": "Back to home"
+  },
+  "footer": {
+    "tagline": "A Nuxt base template for SEO-driven landing pages.",
+    "rights": "All rights reserved."
+  },
+  "validation": {
+    "required": "This field is required.",
+    "email": "Enter a valid email address.",
+    "min": "Must be at least {min} characters.",
+    "max": "Must be at most {max} characters.",
+    "invalid": "This value is invalid."
+  }
+}

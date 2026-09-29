@@ -1,0 +1,165 @@
+{
+  "seo": {
+    "title": "Landing Page Base — Nuxt SEO Starter",
+    "description": "Template Nuxt 4 dựng sẵn cho landing page tối ưu SEO, kèm Tailwind CSS, DaisyUI, i18n và static generation."
+  },
+  "nav": {
+    "features": "Tính năng",
+    "pricing": "Bảng giá",
+    "testimonials": "Đánh giá",
+    "faq": "Hỏi đáp",
+    "contact": "Liên hệ",
+    "cta": "Bắt đầu"
+  },
+  "hero": {
+    "eyebrow": "Mới · Nuxt 4 + Tailwind CSS 4",
+    "title": "Ra mắt landing page chuẩn SEO trong một ngày",
+    "subtitle": "Template dựng sẵn các section, hạ tầng SEO và design token mà mọi trang marketing cần — chỉ cần đổi nội dung.",
+    "primaryCta": "Bắt đầu",
+    "secondaryCta": "Xem tính năng"
+  },
+  "features": {
+    "eyebrow": "Tính năng",
+    "title": "Mọi thứ landing page cần, đã được cấu hình sẵn",
+    "subtitle": "Static generation, sitemap, robots.txt và JSON-LD đã sẵn sàng từ đầu — tập trung vào nội dung, không phải hạ tầng.",
+    "items": {
+      "seo": {
+        "title": "SEO thật, không chỉ là meta tag",
+        "description": "Static generation nghĩa là mỗi route xuất ra HTML đầy đủ — crawler đọc được nội dung mà không cần chạy JavaScript."
+      },
+      "performance": {
+        "title": "Nhanh theo mặc định",
+        "description": "Nuxt + Vite + Tailwind CSS 4 cho bundle tối giản, không gửi CSS/JS thừa xuống client."
+      },
+      "i18n": {
+        "title": "Sẵn sàng đa ngôn ngữ",
+        "description": "Tiếng Anh và Tiếng Việt có sẵn — chỉ cần thêm key vào cả hai file là xong."
+      },
+      "theming": {
+        "title": "Design system đổi theme được",
+        "description": "Theme DaisyUI đổi được lúc runtime và lưu lại cho khách, nên đổi thương hiệu chỉ là đổi config."
+      },
+      "components": {
+        "title": "Thư viện section tái sử dụng",
+        "description": "Hero, features, pricing, testimonials, FAQ, CTA — sắp xếp lại, đổi style, hoặc copy sang landing page tiếp theo."
+      },
+      "forms": {
+        "title": "Form liên hệ có validate",
+        "description": "Validate bằng Zod với thông báo lỗi đa ngôn ngữ, sẵn sàng nối vào backend hoặc dịch vụ form."
+      }
+    }
+  },
+  "testimonials": {
+    "eyebrow": "Đánh giá",
+    "title": "Được tin dùng bởi các team cần ra landing page nhanh",
+    "items": [
+      {
+        "quote": "Chúng tôi chỉ đổi nội dung và ra mắt trang campaign mới ngay trong buổi chiều.",
+        "name": "Alex Rivera",
+        "role": "Growth Lead, Acme"
+      },
+      {
+        "quote": "Riêng phần cấu hình SEO đã giúp tiết kiệm cả một sprint.",
+        "name": "Priya Shah",
+        "role": "Marketing Engineer, Nimbus"
+      },
+      {
+        "quote": "Các section gọn gàng, không dư thừa — đúng chất một base template.",
+        "name": "Daniel Kim",
+        "role": "Founder, Loopwork"
+      }
+    ]
+  },
+  "pricing": {
+    "eyebrow": "Bảng giá",
+    "title": "Giá đơn giản, minh bạch",
+    "subtitle": "Thay bằng gói giá thật của bạn — section này chỉ là mẫu.",
+    "perMonth": "/tháng",
+    "cta": "Chọn gói",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "price": "0đ",
+        "description": "Dùng thử.",
+        "features": ["1 landing page", "Hỗ trợ cộng đồng", "Thống kê cơ bản"]
+      },
+      "pro": {
+        "name": "Pro",
+        "price": "699.000đ",
+        "description": "Cho team đang phát triển.",
+        "features": [
+          "Không giới hạn landing page",
+          "Hỗ trợ ưu tiên",
+          "Thống kê nâng cao",
+          "Domain riêng"
+        ],
+        "badge": "Phổ biến nhất"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "price": "Liên hệ",
+        "description": "Cho tổ chức lớn.",
+        "features": ["Mọi thứ trong Pro", "Hỗ trợ riêng", "SLA", "SSO"]
+      }
+    }
+  },
+  "faq": {
+    "eyebrow": "Hỏi đáp",
+    "title": "Câu hỏi thường gặp",
+    "items": [
+      {
+        "question": "Template này dùng được cho production chưa?",
+        "answer": "Đây là base template — phần section, hạ tầng SEO và design system đã sẵn sàng production; nội dung là placeholder để bạn thay thế."
+      },
+      {
+        "question": "Có thực sự tốt cho SEO không?",
+        "answer": "Có — các trang được static generation lúc build, nên search engine nhận HTML đầy đủ theo từng route thay vì một shell JavaScript."
+      },
+      {
+        "question": "Thêm ngôn ngữ mới thế nào?",
+        "answer": "Thêm locale vào `i18n/locales/` và khai báo trong `nuxt.config.ts` — mọi section đã đọc nội dung qua i18n key."
+      },
+      {
+        "question": "Deploy như thế nào?",
+        "answer": "`yarn generate` xuất file static vào `.output/public`; GitHub Actions workflow có sẵn sẽ deploy folder đó lên GitHub Pages mỗi khi push."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Sẵn sàng ra mắt landing page tiếp theo?",
+    "subtitle": "Clone template này, thay nội dung, và deploy.",
+    "button": "Bắt đầu"
+  },
+  "contact": {
+    "eyebrow": "Liên hệ",
+    "title": "Liên hệ với chúng tôi",
+    "subtitle": "Form này validate ở client — nối hàm submit vào backend hoặc dịch vụ form của bạn.",
+    "name": "Họ tên",
+    "email": "Email",
+    "message": "Nội dung",
+    "submit": "Gửi liên hệ",
+    "success": "Cảm ơn — chúng tôi sẽ liên hệ lại sớm."
+  },
+  "error": {
+    "404": {
+      "title": "Không tìm thấy trang",
+      "message": "Trang bạn đang tìm không tồn tại hoặc đã bị di chuyển."
+    },
+    "500": {
+      "title": "Đã có lỗi xảy ra",
+      "message": "Có lỗi không mong muốn xảy ra. Vui lòng thử lại sau."
+    },
+    "backHome": "Về trang chủ"
+  },
+  "footer": {
+    "tagline": "Base template Nuxt cho landing page chuẩn SEO.",
+    "rights": "Đã đăng ký bản quyền."
+  },
+  "validation": {
+    "required": "Vui lòng nhập trường này.",
+    "email": "Email không hợp lệ.",
+    "min": "Tối thiểu {min} ký tự.",
+    "max": "Tối đa {max} ký tự.",
+    "invalid": "Giá trị không hợp lệ."
+  }
+}

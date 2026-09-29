@@ -1,0 +1,73 @@
+{
+  "name": "nuxt-bootstrap-boilerplate",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "description": "A batteries-included Nuxt 4 + TypeScript starter for SEO-driven landing pages — Tailwind CSS 4, DaisyUI 5, static generation, i18n, and the Nuxt SEO module suite (sitemap, robots, schema.org, OG image) out of the box.",
+  "keywords": [
+    "nuxt",
+    "landing-page",
+    "seo",
+    "daisyui",
+    "boilerplate",
+    "starter-template"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atjpta/nuxt-bootstrap-boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/atjpta/nuxt-bootstrap-boilerplate/issues"
+  },
+  "homepage": "https://atjpta.github.io/nuxt-bootstrap-boilerplate/",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint . --fix",
+    "lint:check": "eslint .",
+    "typecheck": "nuxt typecheck",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@lucide/vue": "^1.17.0",
+    "@nuxtjs/i18n": "^10.1.0",
+    "@nuxtjs/seo": "^3.3.0",
+    "@tanstack/vue-form": "^1.33.0",
+    "@vueuse/core": "^14.3.0",
+    "@vueuse/motion": "^3.0.3",
+    "@vueuse/nuxt": "^14.3.0",
+    "nuxt": "^4.2.0",
+    "theme-change": "^2.5.0",
+    "vue": "^3.5.34",
+    "vue-sonner": "^2.0.9",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@nuxt/eslint": "^1.4.0",
+    "@tailwindcss/vite": "^4.3.0",
+    "daisyui": "^5.5.20",
+    "eslint": "^9.18.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.3.0",
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "tailwindcss": "^4.3.0",
+    "typescript": "~6.0.2",
+    "vue-tsc": "^3.2.8"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue}": "eslint --fix",
+    "*.{js,ts,vue,css,md,json}": "prettier --write"
+  }
+}
